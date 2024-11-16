@@ -1,0 +1,327 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif; /* Fuente principal */
+    background-color: #ffffff; /* Fondo blanco */
+}
+
+/* Estilo para títulos h1 */
+h1 {
+    color: red; /* Color de texto rojo */
+    text-align: center; /* Centrar el texto */
+    font-size: 35px; /* Tamaño de la fuente */
+    flex-grow: 1; /* Permite que el título crezca dentro de su contenedor */
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #f9f5d5; /* Fondo beige claro */
+}
+
+/* Contenedor del encabezado para diseño flexible */
+.header-container {
+    display: flex; /* Usar flexbox para organizar elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinear verticalmente */
+    padding: 20px 10px; /* Espaciado interno */
+    max-width: 1200px; /* Máximo ancho */
+    margin: 0 auto; /* Centrar horizontalmente */
+}
+
+/* Estilo del logo dentro del encabezado */
+.logo {
+    max-width: 160px; /* Tamaño máximo del logo */
+}
+
+
+
+
+
+
+
+
+/* Estilo del carrusel */
+.carousel {
+    position: relative; /* Posicionamiento relativo para controlar elementos internos */
+    width: 100vw; /* Ancho completo de la ventana */
+    left: 50%; /* Posicionar el carrusel en el centro horizontal */
+    transform: translateX(-50%); /* Asegura el centrado correcto */
+    overflow: hidden; /* Ocultar contenido desbordado */
+}
+
+/* Estilo general para imágenes del carrusel */
+.carousel img {
+    width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    display: none; /* Inicialmente ocultar las imágenes */
+    clip-path: circle(0% at 0% 50%); /* Aplicar recorte circular (gota) */
+}
+
+/* Estilo de la imagen activa del carrusel */
+.carousel img.active {
+    display: block; /* Mostrar la imagen activa */
+    animation: water-drop 1.5s ease forwards; /* Animación de la transición con efecto gota */
+}
+
+/* Contenido del carrusel (textos y botones) */
+.carousel-content {
+    position: absolute; /* Posicionamiento sobre las imágenes */
+    top: 50%; /* Centrar verticalmente */
+    left: 5%; /* Alinear a la izquierda con un margen */
+    transform: translateY(-50%); /* Alinear perfectamente al centro vertical */
+    text-align: left; /* Texto alineado a la izquierda */
+    color: white; /* Texto blanco */
+    z-index: 2; /* Asegura que el contenido esté encima de la imagen */
+    display: none; /* Inicialmente oculto */
+    transition: opacity 1s ease-in-out; /* Transición suave al cambiar la opacidad */
+}
+
+/* Estilo de los títulos dentro del carrusel */
+.carousel h1 {
+    font-size: 3em; /* Tamaño grande para el título */
+    text-align: left; /* Alineación izquierda */
+    margin: 10px; /* Margen alrededor del texto */
+    color: white; /* Color de texto blanco */
+}
+
+/* Contenido activo del carrusel (mostrar cuando esté activo) */
+.carousel-content.active-content {
+    display: block; /* Mostrar contenido activo */
+}
+
+/* Estilo de los botones de acción dentro del carrusel */
+.btn-action {
+    display: inline-block; /* Elemento en bloque en línea */
+    padding: 10px 30px; /* Espaciado interno del botón */
+    background-color: #007bff; /* Fondo azul */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 15px; /* Bordes redondeados */
+    margin-top: 20px; /* Espaciado superior */
+    font-size: 18px; /* Tamaño de texto */
+    text-align: left; /* Texto alineado a la izquierda */
+}
+
+/* Estilo del botón al pasar el ratón (hover) */
+.btn-action:hover {
+    background-color: #0056b3; /* Cambia el fondo a un tono azul más oscuro */
+    transition: background-color 0.3s ease; /* Transición suave en el cambio de color */
+}
+
+/* Indicadores (puntos) del carrusel */
+.carousel-indicators {
+    position: absolute; /* Posicionar sobre el carrusel */
+    bottom: 20px; /* Espaciado desde la parte inferior */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajuste para centrar correctamente */
+    display: flex; /* Distribuir puntos en línea */
+    gap: 10px; /* Espaciado entre los puntos */
+}
+
+/* Estilo de los puntos de los indicadores */
+.carousel-indicators .dot {
+    width: 15px; /* Tamaño del punto */
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.5); /* Color semi-transparente */
+    border-radius: 50%; /* Forma circular */
+    cursor: pointer; /* Cambiar cursor a mano */
+    transition: background-color 0.3s ease; /* Transición suave de color */
+}
+
+/* Punto activo del indicador */
+.carousel-indicators .dot.active-dot {
+    background-color: rgba(255, 255, 255, 1); /* Punto completamente blanco cuando está activo */
+}
+
+/* Cambio de color al pasar el ratón sobre los puntos */
+.carousel-indicators .dot:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Aumentar opacidad al pasar el ratón */
+}
+
+
+
+
+
+/* Animación de la gota de agua para las imágenes del carrusel */
+@keyframes water-drop {
+    0% {
+        clip-path: circle(0% at 0% 50%); /* Inicia como un pequeño círculo en el lado izquierdo */
+    }
+    100% {
+        clip-path: circle(150% at 50% 50%); /* Se expande para cubrir toda la imagen */
+    }
+}
+
+/* Estilos del menú de navegación */
+nav {
+    background-color: #007bff; /* Fondo azul */
+    width: 100vw; /* Ancho completo de la ventana */
+    position: relative; /* Posicionamiento relativo */
+    left: 50%; /* Centrado */
+    transform: translateX(-50%); /* Ajuste de centrado */
+    overflow: hidden; /* Ocultar contenido desbordado */
+    padding: 20px 0; /* Espaciado interno */
+}
+
+/* Listado del menú */
+.menu {
+    list-style: none; /* Sin viñetas en la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Distribuir elementos horizontalmente */
+    justify-content: space-around; /* Espacio entre los elementos */
+    width: 100%; /* Ancho completo */
+}
+
+/* Elementos del menú */
+.menu li {
+    position: relative; /* Relativo para el efecto de animación */
+    flex: 1; /* Flex para ocupar espacio disponible */
+    text-align: left; /* Alineación a la izquierda */
+    overflow: hidden; /* Ocultar contenido desbordado */
+    margin: 0 10px; /* Margen entre los elementos */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo de los enlaces dentro del menú */
+.menu a {
+    text-decoration: none; /* Sin subrayado */
+    color: #fff; /* Texto blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    display: flex; /* Mostrar los elementos en línea */
+    align-items: center; /* Alinear verticalmente */
+    padding: 10px 70px; /* Espaciado interno */
+    white-space: normal; /* Permitir salto de línea */
+    max-width: 150px; /* Ancho máximo */
+    text-align: left; /* Texto alineado a la izquierda */
+    position: relative; /* Relativo para el z-index */
+    z-index: 1; /* Asegurar que el texto esté por encima de las animaciones */
+}
+
+/* Estilo de las imágenes dentro del menú */
+.menu a img {
+    margin-right: 10px; /* Espaciado a la derecha de la imagen */
+    margin-bottom: 10px; /* Espaciado inferior de la imagen */
+    width: 40px; /* Ancho de la imagen */
+    height: 40px; /* Alto de la imagen */
+}
+
+/* Efecto de animación debajo de los elementos del menú */
+.menu li::before {
+    content: ''; /* Elemento decorativo */
+    position: absolute; /* Posición absoluta */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Cubrir todo el ancho */
+    height: 5px; /* Altura de la barra */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #0056b3; /* Color azul oscuro */
+}
+
+/* Efecto de barra que se expande en hover */
+.menu li::after {
+    content: ''; /* Elemento decorativo */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Cubrir todo el ancho */
+    height: 0; /* Altura inicial 0 */
+    background-color: #0056b3; /* Color de la barra al hacer hover */
+    transition: height 0.3s ease-in-out; /* Transición suave */
+    z-index: 0; /* Debajo del contenido */
+}
+
+/* Estilo de hover para expandir la barra */
+.menu li:hover::after {
+    height: 100%; /* Expandir la barra para cubrir todo el fondo */
+}
+
+/* Cambiar color del texto al hacer hover */
+.menu li:hover a {
+    color: #ffffff; /* Mantener el texto blanco */
+    transition: color 0.3s ease-in-out; /* Transición suave del color */
+}
+
+/* Estilo para el menú activo */
+.menu li.active:hover::after {
+    background-color: #fff; /* Cambiar barra a blanco cuando está activo */
+    height: 100%; /* Barra completa */
+}
+
+/* Estilo del área principal */
+main {
+    display: flex; /* Flexbox para organizar secciones laterales y contenido principal */
+    justify-content: space-between; /* Distribuir el espacio equitativamente */
+    padding: 20px; /* Espaciado interno */
+    background-color: #00ffff; /* Fondo color cian */
+}
+
+/* Estilos para las secciones laterales */
+.left-aside, .right-aside {
+    width: 25%; /* Cada una ocupa el 25% del ancho */
+    height: 100%; /* Altura completa */
+}
+
+.left-aside {
+    padding: 0px 40px 0px 20px; /* Espaciado interno personalizado */
+}
+
+.right-aside {
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    padding: 0px 20px 0px 40px; /* Espaciado interno */
+}
+
+/* Estilo para las imágenes en el lateral derecho */
+.right-aside img {
+    height: 400px; /* Alto fijo */
+    width: auto; /* Mantener proporción */
+}
+
+/* Estilo para las secciones principales */
+section {
+    width: 50%; /* Ocupa el 50% del ancho */
+    padding: 10px; /* Espaciado interno */
+    background-color: #ffebcd; /* Fondo color beige */
+    margin-top: -20px; /* Margen negativo para ajuste */
+}
+
+/* Estilo para filas de contenido */
+.content-row {
+    display: flex; /* Flexbox para organizar el contenido */
+    justify-content: space-between; /* Espaciado entre elementos */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Estilo de bloques de imagen */
+.image-block {
+    width: 45%; /* Cada imagen ocupa el 45% del ancho de la fila */
+    text-align: center; /* Alinear al centro */
+}
+
+/* Estilo para las imágenes dentro de los bloques */
+.image-block img {
+    border: 2px solid black; /* Borde negro */
+}
+
+/* Estilo para el reproductor de audio */
+audio {
+    display: block; /* Mostrar como bloque */
+    margin: 20px auto; /* Centrado horizontalmente */
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #f9f5d5; /* Fondo beige claro */
+    color: #000000; /* Texto negro */
+    text-align: center; /* Alinear texto al centro */
+    padding: 20px; /* Espaciado interno */
+    height: 100px; /* Altura fija */
+    margin-top: -20px; /* Margen negativo para ajustar el espacio */
+}
+
+/* Estilo para los iconos sociales en el pie de página */
+.social-icons img {
+    width: 30px; /* Tamaño de los iconos */
+    margin: 0 10px; /* Espaciado entre los iconos */
+}
